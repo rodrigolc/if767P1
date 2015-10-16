@@ -1,5 +1,9 @@
 // Rodrigo Lopes - rlc2
 // (2015)
+
+#ifndef MATCHER_H
+#define MATCHER_H
+
 #include <vector>
 
 class matcher{
@@ -9,3 +13,5 @@ public:
     virtual ~matcher(); //destrutor
     virtual bool match(const char* string) = 0; //procura a string usando o padrão
 };
+
+#endif //MATCHER_H

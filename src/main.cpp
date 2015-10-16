@@ -90,6 +90,7 @@ int main( int argc, char* argv[] ){
             patterns.push_back(pat);
         }
     }
+
     if (approx_matching){
         //M = new dummy_approx_matcher(patterns);
         printf("NOT IMPLEMENTED edit_distance=%d\n",edit_distance);
@@ -97,6 +98,7 @@ int main( int argc, char* argv[] ){
     }else{
         M = new dummy_matcher(patterns);
     }
+
     for(char* file : files){
         std::ifstream infile(file,std::ifstream::in);
         std::string line;
@@ -106,6 +108,7 @@ int main( int argc, char* argv[] ){
             }
         }
     }
+
     fflush(stdout);
 	return 0;
 }

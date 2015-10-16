@@ -3,8 +3,10 @@
 
 /*
     classe com algoritmo "burro".
-    usa força bruta para fazer a busca,
+    usa força bruta para fazer a busca.
 */
+#ifndef DUMMY_MATCHER_H
+#define DUMMY_MATCHER_H
 
 #include "matcher.hpp"
 #include <vector>
@@ -18,3 +20,5 @@ public:
     virtual ~dummy_matcher(); //destrutor
     virtual bool match(const char* string); //procura a string usando o padrão
 };
+
+#endif //DUMMY_MATCHER_H
