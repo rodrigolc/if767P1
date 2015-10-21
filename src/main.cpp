@@ -11,7 +11,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
-#include "dummy_matcher.hpp"
+#include "KMP_matcher.hpp"
 #include "util.hpp"
 
 // contantes do programa
@@ -96,13 +96,13 @@ int main( int argc, char* argv[] ){
         printf("NOT IMPLEMENTED edit_distance=%d\n",edit_distance);
         exit(1);
     }else{
-        M = new dummy_matcher(patterns);
+        M = new KMP_matcher(patterns);
     }
 
     for(char* file : files){
         std::ifstream infile(file,std::ifstream::in);
         std::string line;
-        while( getline( infile, line ) ){
+        while( getline( infile, line ) ){ //HACK cpp getline vs c getline
             if (M->match(line.c_str())){
                 printf("%s\n",line.c_str());
             }
@@ -115,6 +115,6 @@ int main( int argc, char* argv[] ){
 
 
 void display_help(){
-    // TODO
+    // TODO help
     printf("TODO HELP\n");
 }
