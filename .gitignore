@@ -50,3 +50,4 @@ bin/
 *.gch
 *.o
 .imdone/
+.clang_complete
