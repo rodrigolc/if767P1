@@ -21,10 +21,8 @@ aho_corasick_matcher::~aho_corasick_matcher(){
 
 }
 
-bool aho_corasick_matcher::match(const char* string){
-    int str_len = strlen(string);
-    for(size_t i = 0; i < this->patterns.size();i++){
-        if(ac_match(this->patterns[i],this->tables[i],string) < str_len) return true;
-    }
+bool aho_corasick_matcher::match(int size,const char* string){
+    int str_len = size;
+    
     return false;
 }

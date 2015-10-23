@@ -19,7 +19,7 @@ private:
 public:
     kmp_matcher(std::vector<char*> patterns); //construtor
     virtual ~kmp_matcher(); //destrutor
-    virtual bool match(const char* string); //procura a string usando o padrão
+    virtual bool match(int size, const char* string); //procura a string usando o padrão
 };
 
 #endif //KMP_MATCHER_H

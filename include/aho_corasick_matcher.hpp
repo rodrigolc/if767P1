@@ -29,7 +29,7 @@ private:
 public:
     aho_corasick_matcher(std::vector<char*> patterns); //construtor
     virtual ~aho_corasick_matcher(); //destrutor
-    virtual bool match(const char* string); //procura a string usando o padrão
+    virtual bool match(int size, const char* string); //procura a string usando o padrão
 };
 
 #endif //AHO_CORASICK_MATCHER_H

@@ -18,7 +18,7 @@ private:
 public:
     dummy_matcher(std::vector<char*> patterns); //construtor
     virtual ~dummy_matcher(); //destrutor
-    virtual bool match(const char* string); //procura a string usando o padrão
+    virtual bool match(int size,const char* string); //procura a string usando o padrão
 };
 
 #endif //DUMMY_MATCHER_H
