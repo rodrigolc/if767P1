@@ -11,7 +11,8 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
-#include "KMP_matcher.hpp"
+#include "kmp_matcher.hpp"
+#include "aho_corasick_matcher.hpp"
 #include "util.hpp"
 
 // contantes do programa
@@ -96,20 +97,25 @@ int main( int argc, char* argv[] ){
         printf("NOT IMPLEMENTED edit_distance=%d\n",edit_distance);
         exit(1);
     }else{
-        M = new KMP_matcher(patterns);
+		if(patterns.size() == 1) //se há um só padrão, usa kmp
+		{
+			M = new kmp_matcher(patterns);
+		}
+		else //com mais padrões, usa aho-corasick, que procura em O(n) com varios padroes
+		{
+        	M = new aho_corasick_matcher(patterns);
+		}
     }
 
     for(char* file : files){
         std::ifstream infile(file,std::ifstream::in);
         std::string line;
-        while( getline( infile, line ) ){ //HACK cpp getline vs c getline
+        while( getline( infile, line ) ){
             if (M->match(line.c_str())){
                 printf("%s\n",line.c_str());
             }
         }
     }
-
-    fflush(stdout);
 	return 0;
 }
 

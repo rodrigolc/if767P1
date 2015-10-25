@@ -31,7 +31,7 @@ dummy_matcher::~dummy_matcher(){
     }
 }
 
-bool dummy_matcher::match(int size,const char* string){
+bool dummy_matcher::match(const char* string){
     for(char* pat:this->patterns){
         if ( dumb_search(pat,string) ){
             return true;

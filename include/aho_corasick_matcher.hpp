@@ -8,28 +8,27 @@
 #define AHO_CORASICK_MATCHER_H
 
 #include "matcher.hpp"
-#include <vector>
+#include <map>
 
-struct node_t;
-struct transition{
-    char c;
-    node_t* _node;
-};
 
-struct node_t {
-    char* label;
-    std::vector<transition> transitions;
+struct node {
+    //char* label;// TODO check if used
+    std::map<char,node*> transitions;
+    bool match;
+    node* fallback;
+    node(/*char* label,*/bool match): /*label(label),*/transitions(),match(match),fallback(nullptr){};
+    bool has(const char a){ return transitions.count(a); }
 };
 
 
 class aho_corasick_matcher: public matcher{
 private:
-    node_t* root;
+    node* root = nullptr;
 
 public:
     aho_corasick_matcher(std::vector<char*> patterns); //construtor
     virtual ~aho_corasick_matcher(); //destrutor
-    virtual bool match(int size, const char* string); //procura a string usando o padrão
+    virtual bool match(const char* string); //procura a string usando o padrão
 };
 
 #endif //AHO_CORASICK_MATCHER_H

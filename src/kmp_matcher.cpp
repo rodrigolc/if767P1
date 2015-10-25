@@ -24,8 +24,8 @@ kmp_matcher::~kmp_matcher(){
     }
 }
 
-bool kmp_matcher::match(int size,const char* string){
-    int str_len = size;
+bool kmp_matcher::match(const char* string){
+    int str_len = strlen(string);
     for(size_t i = 0; i < this->patterns.size();i++){
         if(kmp_match(this->patterns[i],this->tables[i],string) < str_len) return true;
     }
