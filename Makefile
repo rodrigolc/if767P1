@@ -4,8 +4,10 @@ LDFLAGS=
 EXECUTABLE=pmt
 
 
-pmt: main.o matcher.o util.o kmp_matcher.o aho_corasick_matcher.o sellers_matcher.o
-	$(CC) main.o matcher.o util.o kmp_matcher.o aho_corasick_matcher.o sellers_matcher.o -o pmt
+pmt: main.o matcher.o util.o kmp_matcher.o aho_corasick_matcher.o sellers_matcher.o dummy_matcher.o
+	mkdir -p bin
+	$(CC) main.o matcher.o util.o kmp_matcher.o aho_corasick_matcher.o sellers_matcher.o dummy_matcher.o -o bin/pmt
+	rm *.o
 #executáveis
 
 kmp: main.o matcher.o util.o kmp_matcher.o
@@ -22,6 +24,9 @@ aho_corasick_matcher.o:
 sellers_matcher.o:
 	$(CC) $(CFLAGS) src/sellers_matcher.cpp
 
+dummy_matcher.o:
+	$(CC) $(CFLAGS) src/dummy_matcher.cpp
+
 #objetos padrao
 main.o: util.o matcher.o
 	$(CC) $(CFLAGS) src/main.cpp
@@ -33,4 +38,4 @@ util.o:
 	$(CC) $(CFLAGS) src/util.cpp
 
 clean:
-	rm pmt *.o
+	rm -rf *.o bin
