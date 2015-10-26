@@ -4,19 +4,23 @@ LDFLAGS=
 EXECUTABLE=pmt
 
 
-pmt: main.o matcher.o util.o kmp_matcher.o aho_corasick_matcher.o
-	$(CC) main.o matcher.o util.o kmp_matcher.o aho_corasick_matcher.o -o pmt
+pmt: main.o matcher.o util.o kmp_matcher.o aho_corasick_matcher.o sellers_matcher.o
+	$(CC) main.o matcher.o util.o kmp_matcher.o aho_corasick_matcher.o sellers_matcher.o -o pmt
 #executáveis
 
 kmp: main.o matcher.o util.o kmp_matcher.o
 	$(CC) main.o matcher.o util.o kmp_matcher.o -o kmp
 
 #objetos dos algoritmos
+
 kmp_matcher.o:
 	$(CC) $(CFLAGS) src/kmp_matcher.cpp
 
 aho_corasick_matcher.o:
 	$(CC) $(CFLAGS) src/aho_corasick_matcher.cpp
+
+sellers_matcher.o:
+	$(CC) $(CFLAGS) src/sellers_matcher.cpp
 
 #objetos padrao
 main.o: util.o matcher.o

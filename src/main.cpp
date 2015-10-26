@@ -13,6 +13,7 @@
 #include <iostream>
 #include "kmp_matcher.hpp"
 #include "aho_corasick_matcher.hpp"
+#include "sellers_matcher.hpp"
 #include "util.hpp"
 
 // contantes do programa
@@ -93,9 +94,8 @@ int main( int argc, char* argv[] ){
     }
 
     if (approx_matching){
-        //M = new dummy_approx_matcher(patterns);
-        printf("NOT IMPLEMENTED edit_distance=%d\n",edit_distance);
-        exit(1);
+        M = new sellers_matcher(patterns,edit_distance);
+        
     }else{
 		if(patterns.size() == 1) //se há um só padrão, usa kmp
 		{
