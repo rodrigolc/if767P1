@@ -1,8 +1,11 @@
-#pmt
+PMT
+===
 
-PMT: ferramenta que busca padrões em linhas de texto.
+Ferramenta que busca padrões em linhas de texto.
 
-Sinopse:
+Sinopse
+--------
+
     pmt [-a {a,k,s,d}] [-e NUM] [-p ARQUIVO] PADRAO ARQUIVO [ARQUIVO2...]
     Busca padrões em arquivos
 
@@ -12,12 +15,14 @@ Sinopse:
     KMP
     Dummy(Força Bruta)
 
-       --algorithm -a ALGORITMO      Escolhe algoritmo
-       --edit -e NUM     Define distancia de edição.
+       --algorithm | -a ALGORITMO      Escolhe algoritmo
+       --edit | -e NUM     Define distancia de edição.
           Se usado, usará algoritmos aproximados
           exceto se um algoritmo exato for informado usando "-a"
-       --pattern -p ARQUIVO      faz a busca com os padrões em ARQUIVO, um por linha
-       --help -h     Mostra essa ajuda
+       --pattern | -p ARQUIVO      faz a busca com os padrões em ARQUIVO, um por linha
+       --help | -h     Mostra essa ajuda
 
 Compilação
+----------
+
 Para compilação, deve ser usado o comando `make`.

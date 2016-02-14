@@ -11,7 +11,8 @@
 #include <vector>
 
 
-class kmp_matcher: public matcher{
+class kmp_matcher: public matcher
+{
 private:
     std::vector<int*> tables;
     std::vector<char*> patterns;
